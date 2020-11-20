@@ -20,14 +20,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="20cf3e37-f313-4ac8-8362-ec5af03e837a" name="Default Changelist" comment="1.0">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/00/css/style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/01-vue/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/02-vue_component/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/00/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/00/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/00/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/00/js/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/02-vue_component/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/02-vue_component/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,6 +83,7 @@
       <workItem from="1605729703271" duration="205000" />
       <workItem from="1605730112372" duration="615000" />
       <workItem from="1605805622923" duration="24017000" />
+      <workItem from="1605883565794" duration="366000" />
     </task>
     <task id="LOCAL-00001" summary="1.0">
       <created>1605729718357</created>

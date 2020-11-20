@@ -5,45 +5,79 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <style>
-        .terminada{
-            text-decoration:line-through;
+        .terminada {
+            text-decoration: line-through;
         }
     </style>
 </head>
 <body>
-<div>
+<div id="app" style="background-color:cornflowerblue">
+    <pre>{{lista1.title}} {{lista2.title}}</pre>
+    <!--Con esto cambias de titulo globalmente, de padre a hijo-->
+    <button @click="()=>lista1.title='Casa de vacaciones'">cambiar titulo</button>
+    <button @click="()=>lista2.title='Casa de vacaciones'">cambiar titulo</button>
 
-    <p>casa</p>
-    <div id="casa">
-        <c-list></c-list>
+    <div>
+        <!-- Aqui le paso el evento declarado en cambiar titulo de hijo -->
+        <!-- El titulo nuevo es el metodo padre el cual para identificar al hijo necesita una id -->
+        <c-list :id="lista1.id" :title="lista1.title" @cambio-titulo="titulonuevo"
+                style="background-color:green"></c-list>
     </div>
-    <b>trabajo</b>
-    <div id="trabajo">
-        <c-list></c-list>
+
+    <div>
+        <c-list :id="lista2.id" :title="lista2.title" @cambio-titulo="titulonuevo"
+                style="background-color: bisque"></c-list>
     </div>
 
 </div>
 <script>
     Vue.component('c-list', {
         template: `
-          <p><input id="tarea" type="text"><button v-on:click="addItem">add</button></p>
+          <div>
+          <h2> {{ id }} {{ title }} </h2>
+          <button @click="cambiarTitulo">cambiar titulo</button>
+          <p><input v-model="tarea" type="text">
+            <button v-on:click="addItem">add</button>
+          </p>
           <ul>
-              <li v-for="item in items" :key="item.cont">
+            <li v-for="item in items" :key="item.cont">
                 <span v-bind:class="{ terminada: item.check }">
-                  {{item.text}}
+                  {{ item.text }}
                 </span>
-                <input type="checkbox" v-model="item.check">
-              </li>
+              <input type="checkbox" v-model="item.check">
+            </li>
           </ul>
+          </div>
         `,
+        props: ['title', 'id'],
         data: function () {
             return {
                 items: [],
                 tarea: null,
-                cont: 1
+                cont: 1,
+            }
+        },
+        watch: {
+            items: {
+                handler(val) {
+                    var aux = 0;
+                    val.forEach((item) => {
+                        if (item.check) {
+                            aux++
+                        }
+                    })
+                    if (aux == 5) {
+                        alert('felicidades')
+                    }
+                },
+                deep: true
             }
         },
         methods: {
+            cambiarTitulo() {
+                this.title = 'cad' + this.id
+                this.$emit('cambio-titulo', {id: this.id, title: this.title})
+            },
             addItem: function () {
                 this.items.push({
                     text: this.tarea,
@@ -55,11 +89,30 @@
             }
         }
     })
+
+
     new Vue({
-        el: '#casa'
-    });
-    new Vue({
-        el: '#trabajo'
+        el: '#app',
+        data: {
+            lista1: {
+                id: '1',
+                title: 'Casa'
+            },
+            lista2: {
+                id: '2',
+                title: 'Trabajo'
+            },
+        },
+        methods: {
+            titulonuevo(data) {
+                if (data.id == this.lista1.id) {
+                    this.lista1.title = data.title;
+                }
+                if (data.id == this.lista2.id) {
+                    this.lista2.title = data.title;
+                }
+            }
+        }
     });
 
 
