@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>00 - vue</title>
+    <style>
+        #app {
+            width: 500px;
+            margin: 0 auto;
+
+        }
+    </style>
+</head>
+<div>
+    <ul id="products" style="background-color: green">
+        <li v-for="item in items">
+            <div>
+                {{ item.name }} - {{ item.price }}
+                <button-counter :id="btn1.id" ></button-counter>
+            </div>
+        </li>
+    </ul>
+</div>
+
+<body>
+<script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+<script>
+    const btn_contador = Vue.component('button-counter', {
+        data: function () {
+            return {
+                count: 0
+            }
+        },props:['id'],
+        template: `
+          <div>
+          <button v-on:click="addCount">+</button>
+          <button v-on:click="delCount">-</button>
+          {{ count }}
+          </div>`,
+        methods: {
+            addCount() {
+                this.count++
+            },
+            delCount() {
+                if (this.count > 0) {
+                    this.count--
+                }
+                return this.count;
+            }
+        }
+    })
+
+    const products = new Vue({
+        el: '#products',
+        data: {
+            count: 0,
+            items: [
+                {name: 'arroz', price: 4},
+                {name: 'pan', price: 2},
+                {name: 'tomate', price: 1.25}
+            ],
+            btn1:{
+                id:'1'
+            }
+
+        }
+    })
+</script>
+</body>
+
+</html>
