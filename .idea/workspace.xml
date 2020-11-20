@@ -20,8 +20,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="20cf3e37-f313-4ac8-8362-ec5af03e837a" name="Default Changelist" comment="1.0">
-      <change afterPath="$PROJECT_DIR$/04-tienda/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/04-tienda/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/04-tienda/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,7 +89,7 @@
       <workItem from="1605729703271" duration="205000" />
       <workItem from="1605730112372" duration="615000" />
       <workItem from="1605805622923" duration="24017000" />
-      <workItem from="1605883565794" duration="7115000" />
+      <workItem from="1605883565794" duration="8044000" />
     </task>
     <task id="LOCAL-00001" summary="1.0">
       <created>1605729718357</created>
@@ -105,7 +105,21 @@
       <option name="project" value="LOCAL" />
       <updated>1605884191399</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="1.0">
+      <created>1605890723329</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1605890723329</updated>
+    </task>
+    <task id="LOCAL-00004" summary="1.0">
+      <created>1605891167124</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1605891167124</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -157,10 +171,10 @@
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="270" y="77" key="SettingsEditor/0.0.1536.864@0.0.1536.864" timestamp="1605729615838" />
-    <state x="361" y="161" key="Vcs.Push.Dialog.v2" timestamp="1605884910103">
+    <state x="361" y="161" key="Vcs.Push.Dialog.v2" timestamp="1605891178975">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="361" y="161" key="Vcs.Push.Dialog.v2/0.0.1536.864@0.0.1536.864" timestamp="1605884910103" />
+    <state x="361" y="161" key="Vcs.Push.Dialog.v2/0.0.1536.864@0.0.1536.864" timestamp="1605891178975" />
     <state x="431" y="181" width="672" height="678" key="search.everywhere.popup" timestamp="1605729568068">
       <screen x="0" y="0" width="1536" height="864" />
     </state>

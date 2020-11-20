@@ -16,8 +16,8 @@
     <ul id="products" style="background-color: green">
         <li v-for="item in items">
             <div>
-                {{ item.name }} - {{ item.price }}
-                <button-counter :id="btn1.id" ></button-counter>
+                {{ item.name }} - {{ item.price }} = {{item.total}}
+                <button-counter :id="btn1.id" style="background-color: bisque"></button-counter>
             </div>
         </li>
     </ul>
@@ -31,7 +31,7 @@
             return {
                 count: 0
             }
-        },props:['id'],
+        }, props: ['id'],
         template: `
           <div>
           <button v-on:click="addCount">+</button>
@@ -50,18 +50,18 @@
             }
         }
     })
-
+    //hay que pasar el valor de total a btn_contador para que sumer el total
     const products = new Vue({
         el: '#products',
         data: {
             count: 0,
             items: [
-                {name: 'arroz', price: 4},
-                {name: 'pan', price: 2},
-                {name: 'tomate', price: 1.25}
+                {name: 'arroz', price: 4, total: 0},
+                {name: 'pan', price: 2, total: 0},
+                {name: 'tomate', price: 1.25, total: 0}
             ],
-            btn1:{
-                id:'1'
+            btn1: {
+                id: '1'
             }
 
         }
