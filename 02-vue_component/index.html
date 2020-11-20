@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .terminada{
+            text-decoration:line-through;
+        }
+    </style>
+</head>
+<body>
+<div>
+
+    <p>casa</p>
+    <div id="casa">
+        <c-list></c-list>
+    </div>
+    <b>trabajo</b>
+    <div id="trabajo">
+        <c-list></c-list>
+    </div>
+
+</div>
+<script>
+    Vue.component('c-list', {
+        template: `
+          <p><input id="tarea" type="text"><button v-on:click="addItem">add</button></p>
+          <ul>
+              <li v-for="item in items" :key="item.cont">
+                <span v-bind:class="{ terminada: item.check }">
+                  {{item.text}}
+                </span>
+                <input type="checkbox" v-model="item.check">
+              </li>
+          </ul>
+        `,
+        data: function () {
+            return {
+                items: [],
+                tarea: null,
+                cont: 1
+            }
+        },
+        methods: {
+            addItem: function () {
+                this.items.push({
+                    text: this.tarea,
+                    check: false,
+                    cont: this.cont
+                })
+                this.cont++
+                this.tarea = null
+            }
+        }
+    })
+    new Vue({
+        el: '#casa'
+    });
+    new Vue({
+        el: '#trabajo'
+    });
+
+
+</script>
+
+</body>
+</html>

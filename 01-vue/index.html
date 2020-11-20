@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>00 - vue</title>
+    <style>
+        .terminada{
+            text-decoration:line-through;
+        }
+    </style>
+</head>
+<div id="app">
+    <pre>{{ nombre }}</pre>
+    <input type="text" v-model="tarea">
+    <input type="text" v-model="name">
+    <button v-on:click="addItem">
+        Add tarea
+    </button>
+    <ul>
+        <li v-for="item in items" :key="item.cont">
+        <span v-bind:class="{ terminada: item.check }">
+           {{item.text}}
+        </span>
+            <input type="checkbox" v-model="item.check">
+        </li>
+    </ul>
+</div>
+
+<body>
+<script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+<script>
+    new Vue({
+        el: "#app",
+        data: {
+            name: 'Jose',
+            surname: 'Muñoz',
+            cont:1,
+            tarea: null,
+            items: []
+        },
+        watch:{
+            name(val) {
+                if(val=='Juan') {
+                    alert('hago algo')
+                }
+            }
+        },
+        computed:{
+            nombre() {
+                return `${this.name} dfdfer er ${this.surname}`
+                return this.name + ' ' + this.surname
+            },
+        },
+        mounted(){
+            this.getItems()
+        },
+
+        methods: {
+            getItems() {
+                this.items = [{text:'primera', cont:1,check:true}]
+                this.count = this.items.length+1
+            },
+            addItem() {
+                this.items.push({
+                    text: this.tarea,
+                    check: false,
+                    cont: this.cont
+                })
+                this.cont++
+                this.tarea = null
+            }
+        }
+    })
+</script>
+</body>
+
+</html>
