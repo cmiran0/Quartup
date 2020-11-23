@@ -20,6 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="20cf3e37-f313-4ac8-8362-ec5af03e837a" name="Default Changelist" comment="1.0">
+      <change afterPath="$PROJECT_DIR$/04-tienda/bd" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/04-tienda/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/04-tienda/index.html" afterDir="false" />
     </list>
@@ -90,6 +91,9 @@
       <workItem from="1605730112372" duration="615000" />
       <workItem from="1605805622923" duration="24017000" />
       <workItem from="1605883565794" duration="8044000" />
+      <workItem from="1605966943259" duration="895000" />
+      <workItem from="1605970701938" duration="1950000" />
+      <workItem from="1606145209018" duration="776000" />
     </task>
     <task id="LOCAL-00001" summary="1.0">
       <created>1605729718357</created>
@@ -143,6 +147,10 @@
     <option name="LAST_COMMIT_MESSAGE" value="1.0" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="717" y="329" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1605974209524">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="717" y="329" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1080@0.0.1920.1080" timestamp="1605974209524" />
     <state x="740" y="244" key="#com.intellij.ide.macro.MacrosDialog" timestamp="1605714145132">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>

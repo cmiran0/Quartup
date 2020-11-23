@@ -4,68 +4,87 @@
 <head>
     <meta charset="UTF-8">
     <title>00 - vue</title>
-    <style>
-        #app {
-            width: 500px;
-            margin: 0 auto;
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
 
-        }
-    </style>
 </head>
-<div id="#app">
-    <ul id="products" style="background-color: green">
-        <li v-for="item in items">
-            <div>
-                {{ item.name }} - {{ item.price }} = {{item.total}}
-                <button-counter :id="btn1.id" style="background-color: bisque"></button-counter>
-            </div>
-        </li>
-    </ul>
+
+<div id="app"style="background-color: bisque">
+    <pre>{{items}}</pre>
+
+    <formulario @subir-producto='addItem' style="background-color: #ffc669"></formulario>
+
+    <lista-productos :items="items"></lista-productos>
+
+
 </div>
 
+
 <body>
-<script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+
 <script>
-    const btn_contador = Vue.component('button-counter', {
+
+    Vue.component('formulario',{
+        template:`
+        <div>
+        <pre> {{item}}</pre>
+            <input v-model="item.name" type="text">
+            <input v-model="item.pvp" type="text">
+
+            <button v-on:click="addItem">add</button>
+         </div>
+        `,
         data: function () {
             return {
-                count: 0
+                item: {id:null, name:null, pvp:"null"},
+                cont: 1
             }
-        }, props: ['id'],
-        template: `
-          <div>
-          <button v-on:click="addCount">+</button>
-          <button v-on:click="delCount">-</button>
-          {{ count }}
-          </div>`,
-        methods: {
-            addCount() {
-                this.count++
-            },
-            delCount() {
-                if (this.count > 0) {
-                    this.count--
-                }
-                return this.count;
-            }
-        }
-    })
-    //hay que pasar el valor de total a btn_contador para que sumer el total
-    const products = new Vue({
-        el: '#products',
-        data: {
-            count: 0,
-            items: [
-                {name: 'arroz', price: 4, total: 0},
-                {name: 'pan', price: 2, total: 0},
-                {name: 'tomate', price: 1.25, total: 0}
-            ],
-            btn1: {
-                id: '1'
-            }
+        },
+        methods:{
 
+            addItem: function () {
+                this.item.id=this.cont
+                this.cont++
+                this.$emit('subir-producto',this.item)
+            }
         }
     })
+
+    Vue.component('lista-productos',{
+        template:`
+            <div>
+                <ul>
+                    <li v-for="item in items" :key="item.cont">
+                        {{ item.name }}
+                    </li>
+                </ul>
+            </div>
+        `,
+        props:['items'],
+        data: function(){
+            return {
+
+            }
+        }
+    })
+
+    new Vue({
+        el:'#app',
+        data:{
+            nuevoItem:null,
+            items:[],
+            ticket:null
+        },
+
+        methods: {
+            addItem(item) {
+                this.items.push(item)
+            }
+        }
+
+    })
+
+
+
 </script>
 </body>
 
