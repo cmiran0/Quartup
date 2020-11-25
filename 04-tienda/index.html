@@ -8,12 +8,15 @@
 
 </head>
 
-<div id="app"style="background-color: bisque">
-    <pre>{{items}}</pre>
+<div id="app" style="background-color: bisque">
 
-    <formulario @subir-producto='addItem' style="background-color: #ffc669"></formulario>
+    <formulario @subir-producto='addItem'></formulario>
 
-    <lista-productos :items="items"></lista-productos>
+    <lista-productos :items="items" @subir-producto-ticket='addTicket'
+                     @borrar-producto-ticket='delTicket'></lista-productos>
+
+    <lista-ticket :ticket="ticket"></lista-ticket>
+    <pre>{{ticket}}</pre>
 
 
 </div>
@@ -23,66 +26,119 @@
 
 <script>
 
-    Vue.component('formulario',{
-        template:`
-        <div>
-        <pre> {{item}}</pre>
-            <input v-model="item.name" type="text">
-            <input v-model="item.pvp" type="text">
-
-            <button v-on:click="addItem">add</button>
-         </div>
+    Vue.component('formulario', {
+        template: `
+          <div>
+          <input v-model="name" type="text">
+          <input v-model="pvp" type="text">
+          <button v-on:click="addItem">add</button>
+          </div>
         `,
         data: function () {
             return {
-                item: {id:null, name:null, pvp:"null"},
-                cont: 1
+                id: 0,
+                name: null,
+                pvp: null,
+
             }
         },
-        methods:{
-
+        methods: {
             addItem: function () {
-                this.item.id=this.cont
+                let item = {}
+                item.name = this.name
+                item.pvp = this.pvp
+                item.id = ++this.id + 'pr'
+
                 this.cont++
-                this.$emit('subir-producto',this.item)
+                this.$emit('subir-producto', item)
+                this.name = null
+                this.pvp = null
             }
         }
     })
 
-    Vue.component('lista-productos',{
-        template:`
-            <div>
-                <ul>
-                    <li v-for="item in items" :key="item.cont">
-                        {{ item.name }}
-                    </li>
-                </ul>
-            </div>
+    Vue.component('lista-productos', {
+        template: `
+          <div>
+          <ul>
+            <li v-for="item in items" :key="item.cont">
+              {{ item.name }}  {{ item.pvp }}
+              <button v-on:click="addTicket(item)">+</button>
+              <button v-on:click="delTicket(item)">-</button>
+            </li>
+          </ul>
+          </div>
         `,
-        props:['items'],
-        data: function(){
+        props: ['items'],
+        data: function () {
             return {
+                id: 2,
+                name: null,
+                pvp: null,
+            }
+        },
+        methods: {
+            addTicket(item) {
+                this.$emit('subir-producto-ticket', item)
+            },
+            delTicket(item) {
+                this.$emit('borrar-producto-ticket', item)
+            }
+        }
+    })
 
+    Vue.component('lista-ticket', {
+        template: `
+          <div>
+          <ul>
+            <li v-for="item in ticket">
+              {{ item.name }}  {{ item.pvp }}
+            </li>
+          </ul>
+          <div>TOTAL: {{ total }}</div>
+          </div>
+        `,
+        props: ['ticket'],
+        computed: {
+            total() {
+                let total = 0
+                this.ticket.forEach((item) => {
+                    total += parseInt(item.pvp)
+                })
+                return total
             }
         }
     })
 
     new Vue({
-        el:'#app',
-        data:{
-            nuevoItem:null,
-            items:[],
-            ticket:null
+        el: '#app',
+        data: {
+            items: [{id: 1, name: 'manzana', pvp: 10},
+                {id: 2, name: 'peras', pvp: 8}],
+            ticket: []
         },
-
         methods: {
             addItem(item) {
                 this.items.push(item)
+            },
+            addTicket(item) {
+                this.ticket.push(item)
+            },
+            delTicket(item) {
+                let salir = false
+                this.ticket.forEach((it, index) => {
+                    if (!salir) {
+                        console.log('entra')
+                        if (it === item) {
+                            this.ticket.splice(index, 1)
+                            salir = true
+                        }
+                    }
+                })
             }
         }
 
     })
-
 
 
 </script>

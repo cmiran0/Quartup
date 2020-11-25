@@ -20,7 +20,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="20cf3e37-f313-4ac8-8362-ec5af03e837a" name="Default Changelist" comment="1.0">
-      <change afterPath="$PROJECT_DIR$/04-tienda/bd" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/04-tienda/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/04-tienda/index.html" afterDir="false" />
     </list>
@@ -61,7 +60,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.CommitDialog" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager" selected="Node.js.main.js (1)">
@@ -94,6 +93,7 @@
       <workItem from="1605966943259" duration="895000" />
       <workItem from="1605970701938" duration="1950000" />
       <workItem from="1606145209018" duration="776000" />
+      <workItem from="1606323271489" duration="465000" />
     </task>
     <task id="LOCAL-00001" summary="1.0">
       <created>1605729718357</created>
@@ -175,10 +175,11 @@
     </state>
     <state width="1516" height="288" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1605729526753" />
     <state width="1883" height="376" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1605813269598" />
-    <state x="270" y="77" key="SettingsEditor" timestamp="1605729615838">
-      <screen x="0" y="0" width="1536" height="864" />
+    <state x="338" y="96" width="1022" height="737" key="SettingsEditor" timestamp="1606323295734">
+      <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="270" y="77" key="SettingsEditor/0.0.1536.864@0.0.1536.864" timestamp="1605729615838" />
+    <state x="338" y="96" width="1022" height="737" key="SettingsEditor/0.0.1920.1080@0.0.1920.1080" timestamp="1606323295734" />
     <state x="361" y="161" key="Vcs.Push.Dialog.v2" timestamp="1605891178975">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
